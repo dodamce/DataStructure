@@ -48,7 +48,7 @@ int GetMinIntegral(vector<int> &vet)
 /**
 简单的理解就是创建一个数组标记传入的数组内的值，用新创建数组的下标来表示传入数组内的值
 
-时间复杂度为O(N) 空间复杂度为O(N)
+时间复杂度为O(N) 空间复杂度为O(N) 
 
  */
 int GetMinIntegral(vector<int> &vet, bool ret)
