@@ -11,7 +11,7 @@ Node *delNode(Node *node, int val)
     }
     Node *next = delNode(node->_next, val);
     node->_next = next;
-    
+
     if (node->_val == val)
     {
         Node *next = node->_next;
@@ -23,7 +23,9 @@ Node *delNode(Node *node, int val)
 
 int main()
 {
-    NodeListNoHead list({1, 1, 2, 1, 1, 4, 4, 1, 1});
+    // NodeListNoHead list({1, 1, 2, 1, 1, 4, 4, 1, 1});
+    NodeListNoHead list({1, 1, 1, 1, 1, 1, 1, 1, 1});
+
     list.PrintList();
     list._head = delNode(list._head, 1);
     list.PrintList();
