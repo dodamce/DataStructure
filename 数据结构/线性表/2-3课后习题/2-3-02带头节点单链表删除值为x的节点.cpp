@@ -39,4 +39,5 @@ int main()
     list.PrintList();
     DelElemByTravel(list.head, 2);
     list.PrintList();
+    return 0;
 }
