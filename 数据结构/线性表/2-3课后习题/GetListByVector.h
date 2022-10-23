@@ -87,6 +87,7 @@ public:
 //获取一个带头的单链表
 class NodeListHead
 {
+public:
     NodeListHead(const std::vector<int> &vet)
     {
         assert(vet.size() > 0);
