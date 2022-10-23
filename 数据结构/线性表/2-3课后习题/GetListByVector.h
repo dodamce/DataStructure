@@ -3,6 +3,7 @@
 //无头单链表
 #include <iostream>
 #include <vector>
+#include <assert.h>
 
 struct Node
 {
@@ -14,6 +15,8 @@ struct Node
 
 class NodeListNoHead
 {
+    friend class NodeListHead;
+
 public:
     NodeListNoHead(const std::vector<int> &vet)
     {
@@ -34,7 +37,7 @@ public:
     }
 
     //递归删除链表节点
-    Node *delNode(Node *&node, int val)
+    static Node *delNode(Node *&node, int val)
     {
         if (node == nullptr)
         {
@@ -52,7 +55,7 @@ public:
     }
 
 private:
-    void _DestroyNode(Node *node)
+    static void _DestroyNode(Node *node)
     {
         if (node == nullptr)
         {
@@ -73,10 +76,47 @@ public:
         Node *node = _head;
         while (node != nullptr)
         {
-            std::cout << node->_val << " ";
+            std::cout << node->_val << "-> ";
             node = node->_next;
         }
-        std::cout << std::endl;
+        std::cout << "null " << std::endl;
     }
     Node *_head = nullptr;
+};
+
+//获取一个带头的单链表
+class NodeListHead
+{
+    NodeListHead(const std::vector<int> &vet)
+    {
+        assert(vet.size() > 0);
+        //头
+        head = new Node(-1);
+        Node *node = head->_next;
+        for (int i = 0; i < vet.size(); i++)
+        {
+            node = new Node(vet[i]);
+            node = node->_next;
+        }
+    }
+    ~NodeListHead()
+    {
+        NodeListNoHead::_DestroyNode(head);
+    }
+
+    void PrintList()
+    {
+        Node *node = head;
+        while (node != nullptr)
+        {
+            if (node == head)
+            {
+                std::cout << "头-> ";
+            }
+            std::cout << node->_val << "-> ";
+            node = node->_next;
+        }
+        std::cout << "null " << std::endl;
+    }
+    Node *head;
 };
