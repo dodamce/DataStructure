@@ -3,6 +3,9 @@
 using namespace std;
 
 //遍历法删除链表值为x的节点
+Node *DelElemByTravel(Node *list, int target)
+{
+}
 
 int main()
 {

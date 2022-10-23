@@ -54,7 +54,6 @@ public:
         return node;
     }
 
-private:
     static void _DestroyNode(Node *node)
     {
         if (node == nullptr)
