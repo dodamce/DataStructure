@@ -26,7 +26,7 @@ int DelMinElemList(Node *head)
     //判断如果此时ptr和del相同，说明删除的是第一个节点
     if (del == ptr)
     {
-        head = del->_next;
+        head->_next = del->_next;
         delete del;
     }
     else
@@ -45,7 +45,7 @@ int DelMinElemList(Node *head)
 
 int main()
 {
-    NodeListHead list({1, 10, 3, 4, 5, 6, 0, 8, 9, 10, 11, 11});
+    NodeListHead list({0, 4, 3, 4, 5, 6, 1, 8, 9, 10, 11, 11});
     DelMinElemList(list.head);
     list.PrintList();
     return 0;
