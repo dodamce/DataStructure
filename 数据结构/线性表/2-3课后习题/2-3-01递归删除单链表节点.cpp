@@ -27,7 +27,6 @@ int main()
     NodeListNoHead list({1, 1, 1, 1, 1, 1, 1, 1, 1});
 
     list.PrintList();
-    NodeListNoHead::_DestroyNode(list._head);
     list._head = delNode(list._head, 1); //换头时删除原来的头，防止内存泄漏
     list.PrintList();
     return 0;

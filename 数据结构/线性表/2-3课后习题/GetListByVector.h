@@ -92,11 +92,12 @@ public:
         assert(vet.size() > 0);
         //头
         head = new Node(-1);
-        Node *node = head->_next;
+        Node *node = head;
         for (int i = 0; i < vet.size(); i++)
         {
-            node = new Node(vet[i]);
-            node = node->_next;
+            Node *new_node = new Node(vet[i]);
+            node->_next = new_node;
+            node = new_node;
         }
     }
     ~NodeListHead()
@@ -113,7 +114,10 @@ public:
             {
                 std::cout << "头-> ";
             }
-            std::cout << node->_val << "-> ";
+            else
+            {
+                std::cout << node->_val << "-> ";
+            }
             node = node->_next;
         }
         std::cout << "null " << std::endl;
