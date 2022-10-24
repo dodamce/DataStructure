@@ -80,6 +80,16 @@ public:
         }
         std::cout << "null " << std::endl;
     }
+
+    static void PrintList(Node *node)
+    {
+        while (node != nullptr)
+        {
+            std::cout << node->_val << "-> ";
+            node = node->_next;
+        }
+        std::cout << "null " << std::endl;
+    }
     Node *_head = nullptr;
 };
 
@@ -122,5 +132,18 @@ public:
         }
         std::cout << "null " << std::endl;
     }
+
+    static void PrintList(Node *node)
+    {
+        std::cout << "头-> ";
+        node = node->_next;
+        while (node != nullptr)
+        {
+            std::cout << node->_val << "-> ";
+            node = node->_next;
+        }
+        std::cout << "null " << std::endl;
+    }
+
     Node *head;
 };
