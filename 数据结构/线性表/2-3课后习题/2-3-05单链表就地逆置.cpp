@@ -26,7 +26,7 @@ void reserve(Node *head)
         Node *next = ptr->_next;
         if (head->_next == nullptr)
         {
-            //此时没有节点
+            //此时没有节点,需要注意清空ptr连接的原来的链表节点
             head->_next = ptr;
             ptr->_next = nullptr;
         }
