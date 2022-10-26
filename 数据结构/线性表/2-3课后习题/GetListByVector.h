@@ -147,3 +147,73 @@ public:
 
     Node *head;
 };
+
+//带头双向循环链表
+struct CircleNode
+{
+    CircleNode *next = nullptr;
+    CircleNode *prev = nullptr;
+    int data;
+    CircleNode(int d) : data(d) {}
+};
+
+class NodeListHeadCircle
+{
+public:
+    CircleNode *head;
+    NodeListHeadCircle(const std::vector<int> vet)
+    {
+        head = new CircleNode(-1); //头节点
+        CircleNode *node = head;
+        for (int i = 0; i < vet.size(); i++)
+        {
+            CircleNode *new_node = new CircleNode(vet[i]);
+            node->next = new_node;
+            new_node->prev = node;
+            new_node->next = head;
+            head->prev = new_node;
+            node = new_node;
+        }
+    }
+
+    ~NodeListHeadCircle()
+    {
+        CircleNode *node = head->next;
+        while (node != head)
+        {
+            CircleNode *next = node->next;
+            delete node;
+            node = next;
+        }
+        delete head;
+    }
+
+    void PrintList()
+    {
+        CircleNode *node = head->next;
+        std::cout << "头 ";
+        if (node == head)
+        {
+            std::cout << "empty ";
+            return;
+        }
+        while (node != head)
+        {
+            std::cout << node->data << " ";
+            node = node->next;
+        }
+        std::cout << "头 " << std::endl;
+    }
+
+    void PrintListReserve()
+    {
+        CircleNode *node = head->prev;
+        std::cout << "头 ";
+        while (node != head)
+        {
+            std::cout << node->data << " ";
+            node = node->prev;
+        }
+        std::cout << "头 " << std::endl;
+    }
+};
