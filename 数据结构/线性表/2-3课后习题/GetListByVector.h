@@ -198,6 +198,20 @@ public:
         }
         std::cout << node->data << std::endl;
     }
+    ~NodeListCircleSingle()
+    {
+        if (head != nullptr)
+        {
+            SingleNode *node = head->next;
+            while (node != head)
+            {
+                SingleNode *next = node->next;
+                delete node;
+                node = next;
+            }
+            delete head;
+        }
+    }
 };
 
 class NodeListHeadCircle
