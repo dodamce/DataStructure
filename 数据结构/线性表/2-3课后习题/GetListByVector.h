@@ -157,6 +157,49 @@ struct CircleNode
     CircleNode(int d) : data(d) {}
 };
 
+//不带头单向循环链表
+struct SingleNode
+{
+    SingleNode *next = nullptr;
+    int data;
+    SingleNode(int d) : data(d) {}
+};
+
+class NodeListCircleSingle
+{
+public:
+    SingleNode *head = nullptr;
+    NodeListCircleSingle(const std::vector<int> &vet)
+    {
+        SingleNode *tail = nullptr;
+        for (int i = 0; i < vet.size(); i++)
+        {
+            if (head == nullptr)
+            {
+                head = new SingleNode(vet[i]);
+                tail = head;
+            }
+            else
+            {
+                tail->next = new SingleNode(vet[i]);
+                tail = tail->next;
+            }
+        }
+        tail->next = head;
+    }
+    void PrintList()
+    {
+        SingleNode *node = head;
+        assert(head != nullptr);
+        while (node->next != head)
+        {
+            std::cout << node->data << " ";
+            node = node->next;
+        }
+        std::cout << node->data << std::endl;
+    }
+};
+
 class NodeListHeadCircle
 {
 public:
