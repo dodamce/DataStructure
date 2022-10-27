@@ -250,6 +250,10 @@ public:
     }
     ~NodeListCircleSingleHead()
     {
+        if (head == nullptr)
+        {
+            return;
+        }
         SingleNode *node = head->next;
         while (node != head)
         {
