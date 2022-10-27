@@ -157,7 +157,6 @@ struct CircleNode
     CircleNode(int d) : data(d) {}
 };
 
-//不带头单向循环链表
 struct SingleNode
 {
     SingleNode *next = nullptr;
@@ -165,6 +164,7 @@ struct SingleNode
     SingleNode(int d) : data(d) {}
 };
 
+//不带头单向循环链表
 class NodeListCircleSingle
 {
 public:
@@ -214,6 +214,53 @@ public:
     }
 };
 
+//带头循环单链表
+class NodeListCircleSingleHead
+{
+public:
+    SingleNode *head = nullptr;
+    NodeListCircleSingleHead(const std::vector<int> &vet)
+    {
+        head = new SingleNode(-1); //头节点
+        SingleNode *tail = head;
+        for (int i = 0; i < vet.size(); i++)
+        {
+            SingleNode *node = new SingleNode(vet[i]);
+            tail->next = node;
+            tail = tail->next;
+        }
+        tail->next = head;
+    }
+    void PrintList()
+    {
+        assert(head != nullptr);
+        if (head->next == head)
+        {
+            std::cout << "empty" << std::endl;
+            return;
+        }
+        std::cout << "头 ";
+        SingleNode *node = head->next;
+        while (node != head)
+        {
+            std::cout << node->data << " ";
+            node = node->next;
+        }
+        std::cout << "头 " << std::endl;
+    }
+    ~NodeListCircleSingleHead()
+    {
+        SingleNode *node = head->next;
+        while (node != head)
+        {
+            SingleNode *next = node->next;
+            delete node;
+            node = next;
+        }
+    }
+};
+
+//带头双向循环链表
 class NodeListHeadCircle
 {
 public:
