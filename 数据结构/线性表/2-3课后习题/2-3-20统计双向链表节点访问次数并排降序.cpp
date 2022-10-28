@@ -57,8 +57,8 @@ public:
     }
 };
 
-//让节点值为target的freq+1,并且时钟让链表按照访问频度降序,是频繁访问的节点排在前面
-void Locate(NodeBoth *&list, int target)
+//让节点值为target的freq+1,并且时钟让链表按照访问频度降序,是频繁访问的节点排在前面,返回找到的节点
+NodeBoth *Locate(NodeBoth *&list, int target)
 {
     //先找第一个值为target的节点
     NodeBoth *node = list->next;
@@ -73,7 +73,7 @@ void Locate(NodeBoth *&list, int target)
     if (node == nullptr)
     {
         std::cout << "没有找到要访问的节点" << std::endl;
-        return;
+        return nullptr;
     }
     node->freq += 1;
     //向前找第一个freq比node大的
@@ -110,6 +110,7 @@ void Locate(NodeBoth *&list, int target)
         prev->next = node;
         node->prev = prev;
     }
+    return node;
 }
 
 int main()
