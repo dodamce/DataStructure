@@ -75,5 +75,8 @@
     "thread": "cpp",
     "typeindex": "cpp",
     "valarray": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "Botton"
+  ]
 }
