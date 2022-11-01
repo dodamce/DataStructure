@@ -63,7 +63,7 @@ string turnPrefix(const string &str)
                     else
                     {
                         //栈优先级大的出栈
-                        while (!st.empty() && priority(st.top()) >= priority(str[i]))
+                        while (!st.empty() && priority(st.top()) > priority(str[i]))
                         {
                             ret.push_back(st.top());
                             st.pop();
@@ -87,7 +87,7 @@ string turnPrefix(const string &str)
 
 int main()
 {
-    string input = "(a+b)*(c+d)";
+    string input = "1+((2+3)*4)-5";
     cout << turnPrefix(input) << endl;
     return 0;
 }
