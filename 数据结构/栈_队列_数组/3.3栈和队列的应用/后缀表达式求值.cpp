@@ -3,7 +3,6 @@
 #include <stack>
 #include <map>
 #include <functional>
-#include <pthread.h>
 
 using namespace std;
 
