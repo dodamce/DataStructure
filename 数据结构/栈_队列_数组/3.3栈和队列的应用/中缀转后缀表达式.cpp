@@ -64,7 +64,7 @@ string turnPostfix(string &str)
                     else
                     {
                         //将优先级大于这个操作符的字符出栈输出
-                        cout << "INFO:" << st.top() << endl;
+                        // cout << "INFO:" << st.top() << endl;
                         while (!st.empty() && priority(st.top()) >= priority(str[i]))
                         {
                             ret.push_back(st.top());
@@ -88,7 +88,8 @@ string turnPostfix(string &str)
 
 int main()
 {
-    string input = "2+4*8+(8*8+1)/3";
+    // string input = "2+4*8+(8*8+1)/3";
+    string input = "a*(b+c)-d";
 
     cout << turnPostfix(input) << endl;
     return 0;
