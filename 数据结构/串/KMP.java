@@ -13,15 +13,15 @@ public class KMP {
         }
     }
 
-    // 使用KMP算法返回src第一个匹配dst的位置,下标从0开始,从dst的pos位置开始匹配
+    // 使用KMP算法返回src第一个匹配dst的位置,下标从0开始,从src的pos位置开始匹配
     public static int GetSubStrPos(String src, String dst, int pos) {
         if (src == null || dst == null || src.length() == 0 || dst.length() == 0)
             return -1;
-        if (pos >= dst.length() || pos < 0)
+        if (pos >= src.length() || pos < 0)
             return -1;
 
-        int i = 0;// 遍历src主串
-        int j = pos;// 遍历dst字串
+        int i = pos;// 遍历src主串
+        int j = 0;// 遍历dst字串
         int lenSrc = src.length();
         int lenDst = dst.length();
         // 计算字串的next数组
@@ -29,7 +29,8 @@ public class KMP {
         InitNext(dst, next);
 
         while (i < lenSrc && j < lenDst) {
-            if (src.charAt(i) == dst.charAt(j)) {
+            if (j == -1 || src.charAt(i) == dst.charAt(j)) {
+                //j==-1代表第一个字符就匹配失败，i从第二个字符开始匹配，j从0开始
                 i++;
                 j++;
             } else {
@@ -47,6 +48,6 @@ public class KMP {
 
     public static void main(String[] args) {
         // System.out.println(GetSubStrPos("abcabcabcdabcde", "abcd", 0));
-        System.out.println(GetSubStrPos("abcdabcabcdabcde", "abcd", 0));
+        System.out.println(GetSubStrPos("abcdabcabcdabcde", "abcd", 1));
     }
 }
