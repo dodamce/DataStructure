@@ -115,6 +115,7 @@ void Manage(const string &carStr, const string &truckStr)
 int main()
 {
     // Manage("abcdef", "ABCD");
-    Manage("abcdefgh", "ABCDEF");
+    // Manage("abcdefgh", "ABCDEF");
+    Manage("abcdefghigk", "");
     return 0;
 }
