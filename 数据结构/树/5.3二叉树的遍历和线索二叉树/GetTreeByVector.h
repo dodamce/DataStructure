@@ -50,7 +50,7 @@ public: //父类中为char*类型,把string转换为char*
 
 class MyTree
 {
-private:
+public:
 	TreeNode *root;
 
 public:
