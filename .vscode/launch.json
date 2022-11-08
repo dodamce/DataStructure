@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch tree",
+      "request": "launch",
+      "mainClass": "tree",
+      "projectName": "DataStructure_6c6070cf"
+    },
+    {
+      "type": "java",
       "name": "Launch KMP",
       "request": "launch",
       "mainClass": "KMP",
