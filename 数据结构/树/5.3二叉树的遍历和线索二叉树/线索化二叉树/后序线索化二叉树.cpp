@@ -66,7 +66,7 @@ TreeNode *GetNextNode(TreeNode *root)
     }
 }
 
- DisplayTree(TreeNode *root)
+void DisplayTree(TreeNode *root)
 {
     stack<TreeNode *> st;
     while (root != nullptr)
