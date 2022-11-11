@@ -10,9 +10,10 @@ void Print(stack<TreeNode *> st)
         cout << st.top()->val << " ";
         st.pop();
     }
+    cout << "\n";
 }
 
-//后序遍历，将结果保存到栈上，节点值为x的节点后（只有一个），栈元素就是这个节点的所有父节点
+//后序遍历，将结果保存到栈上，节点值为x的节点后，栈元素就是这个节点的所有父节点
 void DisPlay(TreeNode *root, int target)
 {
     TreeNode *prev = nullptr;
@@ -47,7 +48,7 @@ void DisPlay(TreeNode *root, int target)
 
 int main(int argc, char const *argv[])
 {
-    MyTree tree({1, 2, 3, 4, 5, 6, 7});
+    MyTree tree({1, 2, 3, 4, 5, 5, 7});
     tree.Print();
     DisPlay(tree.root, 5);
     return 0;
