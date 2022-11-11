@@ -14,7 +14,9 @@ TreeNode *swapNode(TreeNode *root)
 
 int main()
 {
-    MyTree tree({1, 2, 3, 4, 5, 6, 7});
+    // MyTree tree({1, 2, 3, 4, 5, 6, 7});
+    // MyTree tree({1, 2, 3, 4, 5, 6, 7});
+    MyTree tree({1, 2});
     tree.Print();
     swapNode(tree.root);
     tree.Print();
