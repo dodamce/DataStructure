@@ -138,6 +138,10 @@ public:
 	//层序打印,为例打印效果,选择二维数组保存结果后一起打印,让打印结果尽可能接近树
 	void Print()
 	{
+		if (this->root == nullptr)
+		{
+			return;
+		}
 		std::vector<std::vector<int>> msg;
 		int level = 1; //层数
 		std::queue<TreeNode *> queue;
