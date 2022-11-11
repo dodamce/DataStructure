@@ -21,8 +21,8 @@ vector<int> dfs(const vector<int> &preDisplay, int left, int right)
         return ret;
     }
     int size = (right - left + 1) / 2;
-    vector<int> leftTree = dfs(preDisplay, left + 1, left + size);
-    vector<int> rightTree = dfs(preDisplay, left + size + 1, right);
+    vector<int> leftTree = dfs(preDisplay, left + 1, left + size);//左子树的范围
+    vector<int> rightTree = dfs(preDisplay, left + size + 1, right);//右子树范围
     vector<int> ret(leftTree.begin(), leftTree.end());
     for (int i = 0; i < rightTree.size(); i++)
     {
