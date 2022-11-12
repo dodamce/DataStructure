@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//利用前序遍历，每次访问节点就+权值，每次回退节点就-权值，直到遇到根节点，放到数组即可
+//利用前序遍历，每次访问节点就+权值，每次递归返回就自动-权值了，直到遇到根节点，放到数组即可
 void GetWeightTree(TreeNode *root, vector<int> &ret, int weight)
 {
     if (root->left == nullptr && root->right == nullptr)
