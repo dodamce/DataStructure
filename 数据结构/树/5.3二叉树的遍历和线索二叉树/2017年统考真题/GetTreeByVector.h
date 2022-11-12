@@ -22,12 +22,12 @@ struct TreeNode
 
 private:
 	TreeNode *parent;
+	bool flag = false;
 
 public:
 	Elem val;
 	TreeNode *left;
 	TreeNode *right;
-	bool flag = false;
 	TreeNode(Elem _val)
 	{
 		val = _val;
