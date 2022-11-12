@@ -1,9 +1,10 @@
-//顺序存储二叉树的每个节点，数组的值为父节点的下标
+//顺序存储三叉树的每个节点，数组的值为父节点的下标
 
-//这里练习使用双亲表示法构建层序二叉树
+//这里练习使用双亲表示法构建层序构建三叉树
 
 #include <vector>
 #include <math.h>
+#include <assert.h>
 
 template <class T>
 struct Elem
@@ -36,13 +37,13 @@ public:
             else
             {
                 //计算这层最多可以有几个节点
-                for (int j = 0; j < pow(2, level - 1); j++)
+                for (int j = 0; j < pow(3, level - 1); j++)
                 {
                     nodes.push_back(ElemNode(vet[pos++], parent));
                     times++;
-                    if (times == 2)
+                    if (times == 3)
                     {
-                        //这里实现的二叉树，所以当这个节点有两个子节点后父亲节点+1
+                        //这里实现的三叉树，所以当这个节点有三个子节点后父亲节点+1
                         parent++;
                         times = 0;
                     }
@@ -51,5 +52,27 @@ public:
             level++;
         }
     }
+
+    //获取某个节点的父节点
+    ElemNode getParent(const T &num)
+    {
+        //在数组中查找这个元素
+        size_t pos = findElem(num);
+        assert(pos < nodes.size());
+        return nodes[nodes[pos].parent];
+    }
     std::vector<ElemNode> nodes;
+
+private:
+    size_t findElem(T num)
+    {
+        for (int i = 0; i < nodes.size(); i++)
+        {
+            if (nodes[i].data == num)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 };
