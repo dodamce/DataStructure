@@ -2,6 +2,7 @@
 
 #include <assert.h>
 #include <vector>
+#include <stdio.h>
 
 class UnionFindSet
 {
@@ -12,7 +13,7 @@ private:
 public:
     UnionFindSet(size_t size)
     {
-        ufs.reserve(size, -1);
+        ufs.resize(size, -1);
     }
 
     // x和y所在的两个集合合并
@@ -25,7 +26,7 @@ public:
         if (root_x != root_y)
         {
             //不在一棵树上
-            ufs[root_x] += root_y;
+            ufs[root_x] += ufs[root_y];
             ufs[root_y] = root_x;
         }
     }
@@ -34,7 +35,7 @@ public:
     int FindRoot(int data)
     {
         int root = data;
-        while (ufs[root] > 0)
+        while (ufs[root] >= 0)
         {
             root = ufs[root];
         }
@@ -47,5 +48,33 @@ public:
             ufs[data] = root;
             data = parent;
         }
+        return root;
+    }
+
+    //获取并查集中树的个数
+    int GetTreeSize()
+    {
+        int ret = 0;
+        for (int i = 0; i < ufs.size(); i++)
+        {
+            if (ufs[i] < 0)
+                ret += 1;
+        }
+        return ret;
+    }
+
+    //打印并查集信息
+    void PrintUfs()
+    {
+        for (int i = 0; i < ufs.size(); i++)
+        {
+            printf("%2d ", i);
+        }
+        printf("\n");
+        for (int i = 0; i < ufs.size(); i++)
+        {
+            printf("%2d ", ufs[i]);
+        }
+        printf("\n");
     }
 };
