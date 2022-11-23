@@ -18,7 +18,7 @@ public:
     // x和y所在的两个集合合并
     void Union(int x, int y)
     {
-        assert(x < ufs.szie() && y < ufs.size());
+        assert(x < ufs.size() && y < ufs.size());
         int root_x = FindRoot(x);
         int root_y = FindRoot(y);
 
