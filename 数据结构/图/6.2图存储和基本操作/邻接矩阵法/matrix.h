@@ -100,4 +100,78 @@ public:
         }
         printf("\n");
     }
+
+    //判断图是否存在边<x,y>或(x,y)
+    bool Adjacent(const v &x, const v &y)
+    {
+        return _matrix[_indexMap[x]][_indexMap[y]] != max;
+    }
+
+    //列出图中x相邻的边
+    std::vector<v> GetNeighborsPoint(const v &x)
+    {
+        int index = _indexMap[x];
+        assert(index >= 0);
+        std::vector<v> result;
+        for (int i = 0; i < _matrix[index].size(); i++)
+        {
+            if (_matrix[index][i] != max)
+            {
+                // std::cout << x << "->" << _verPoint[i] << std::endl;
+                result.push_back(_verPoint[i]);
+            }
+        }
+        return result;
+    }
+
+    // 在图中插入节点x
+    void InsertVertex(const v &x)
+    {
+        _verPoint.push_back(x);
+        _indexMap[x] = _verPoint.size() - 1;
+        for (int i = 0; i < _matrix.size(); i++)
+        {
+            _matrix[i].push_back(max);
+        }
+        std::vector<w> newLine(_verPoint.size(), max);
+        _matrix.push_back(newLine);
+    }
+
+    //在图中删除节点x
+    void DeleteVertex(const v &x)
+    {
+        int pos = _indexMap[x];
+        assert(pos >= 0);
+        _verPoint.erase(_verPoint.begin() + pos);
+        _indexMap.erase(x);
+        _matrix.erase(_matrix.begin() + pos);
+        for (int i = 0; i < _matrix.size(); i++)
+        {
+            _matrix[i].erase(_matrix[i].begin() + pos);
+        }
+    }
+
+    //删除边<x，y>或(x，y)
+    void RemoveEdge(const v &x, const v &y)
+    {
+        //假定x,y存在，减少代码量
+        _matrix[_indexMap[x]][_indexMap[y]] = max;
+        if (!flag)
+        {
+            //无向图
+            _matrix[_indexMap[y]][_indexMap[x]] = max;
+        }
+    }
+
+    //设置边的权值（添加边）
+    void SetEdgeValue(const v &x, const v &y, const w &z)
+    {
+        //假定x,y存在，减少代码量
+        _matrix[_indexMap[x]][_indexMap[y]] = z;
+        if (!flag)
+        {
+            //无向图
+            _matrix[_indexMap[y]][_indexMap[x]] = z;
+        }
+    }
 };
