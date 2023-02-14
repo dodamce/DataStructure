@@ -2,7 +2,7 @@
 // 循序查找采用链表结构，折半查找采用数组的形式
 #include <iostream>
 #include <vector>
-#include "../线性表/2-3课后习题/GetListByVector.h" //链表头文件
+#include "../../线性表/2-3课后习题/GetListByVector.h" //链表头文件
 #include <algorithm>
 
 using namespace std;
