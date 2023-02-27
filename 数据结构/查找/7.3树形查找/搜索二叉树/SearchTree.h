@@ -13,8 +13,10 @@ struct TreeNode
 
 class SearchTree
 {
-private:
+public:
     TreeNode *root = nullptr;
+
+private:
     /**
      * @brief 在二叉搜索树中查找节点值为val的节点
      *
