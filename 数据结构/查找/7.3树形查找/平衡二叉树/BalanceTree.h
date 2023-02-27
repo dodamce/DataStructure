@@ -15,6 +15,7 @@ struct Node
 
 class BalanceTree
 {
+public:
     Node *root;
 
 public:
