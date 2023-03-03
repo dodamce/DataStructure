@@ -1,6 +1,7 @@
 #include "./插入排序/InsertSort.h"
 #include "./插入排序/HalfInsertSort.h"
 #include "./插入排序/ShellSort.h"
+#include "./交换排序/BubbleSort.h"
 #include "debug.h"
 
 #define SIZE 10
@@ -14,16 +15,30 @@ void TestInsertSort(vector<ValueType> &vet)
     DisPlay(vet);
 }
 
+// ----------------------------------------------------------------
+
 template <class ValueType>
 void TestHalfInsertSort(vector<ValueType> &vet)
 {
     HalfInsertSort(vet);
     DisPlay(vet);
 }
+
+// ----------------------------------------------------------------
+
 template <class ValueType>
 void TestShellSort(vector<ValueType> &vet)
 {
     ShellSort(vet);
+    DisPlay(vet);
+}
+
+// ----------------------------------------------------------------
+
+template <class ValueType>
+void TestBubbleSort(vector<ValueType> &vet)
+{
+    BubbleSort(vet);
     DisPlay(vet);
 }
 
@@ -38,6 +53,7 @@ int main(int argc, char const *argv[])
     vector<int> buff{9, 8, 7, 6, 5, 4, 3, 2, 1};
     // TestInsertSort(vet);
     // TestHalfInsertSort(buff);
-    TestShellSort(buff);
+    // TestShellSort(buff);
+    TestBubbleSort(buff);
     return 0;
 }
