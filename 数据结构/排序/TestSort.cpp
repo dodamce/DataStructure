@@ -1,19 +1,11 @@
 #include "./插入排序/InsertSort.h"
 #include "./插入排序/HalfInsertSort.h"
+#include "./插入排序/ShellSort.h"
+#include "debug.h"
 
 #define SIZE 10
 
 #include <time.h>
-
-template <class ValueType>
-void DisPlay(const vector<ValueType> &vet)
-{
-    for (auto &val : vet)
-    {
-        cout << val << " ";
-    }
-    cout << "\n";
-}
 
 template <class ValueType>
 void TestInsertSort(vector<ValueType> &vet)
@@ -28,6 +20,12 @@ void TestHalfInsertSort(vector<ValueType> &vet)
     HalfInsertSort(vet);
     DisPlay(vet);
 }
+template <class ValueType>
+void TestShellSort(vector<ValueType> &vet)
+{
+    ShellSort(vet);
+    DisPlay(vet);
+}
 
 int main(int argc, char const *argv[])
 {
@@ -39,7 +37,7 @@ int main(int argc, char const *argv[])
     }
     vector<int> buff{9, 8, 7, 6, 5, 4, 3, 2, 1};
     // TestInsertSort(vet);
-    TestHalfInsertSort(vet);
-    TestHalfInsertSort(buff);
+    // TestHalfInsertSort(buff);
+    TestShellSort(buff);
     return 0;
 }
