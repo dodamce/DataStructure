@@ -1,4 +1,5 @@
 #include "./插入排序/InsertSort.h"
+#include "./插入排序/HalfInsertSort.h"
 
 #define SIZE 10
 
@@ -21,6 +22,13 @@ void TestInsertSort(vector<ValueType> &vet)
     DisPlay(vet);
 }
 
+template <class ValueType>
+void TestHalfInsertSort(vector<ValueType> &vet)
+{
+    HalfInsertSort(vet);
+    DisPlay(vet);
+}
+
 int main(int argc, char const *argv[])
 {
     srand((unsigned)time(nullptr));
@@ -29,6 +37,9 @@ int main(int argc, char const *argv[])
     {
         vet[i] = rand() % 100 + 1;
     }
-    TestInsertSort(vet);
+    vector<int> buff{9, 8, 7, 6, 5, 4, 3, 2, 1};
+    // TestInsertSort(vet);
+    TestHalfInsertSort(vet);
+    TestHalfInsertSort(buff);
     return 0;
 }
