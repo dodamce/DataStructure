@@ -2,6 +2,7 @@
 #include "./插入排序/HalfInsertSort.h"
 #include "./插入排序/ShellSort.h"
 #include "./交换排序/BubbleSort.h"
+#include "./交换排序/QuickSort.h"
 #include "debug.h"
 
 #define SIZE 10
@@ -42,6 +43,14 @@ void TestBubbleSort(vector<ValueType> &vet)
     DisPlay(vet);
 }
 
+// ----------------------------------------------------------------
+template <class ValueType>
+void TestQuickSort(vector<ValueType> &vet)
+{
+    QuickSort(vet);
+    DisPlay(vet);
+}
+
 int main(int argc, char const *argv[])
 {
     srand((unsigned)time(nullptr));
@@ -54,6 +63,7 @@ int main(int argc, char const *argv[])
     // TestInsertSort(vet);
     // TestHalfInsertSort(buff);
     // TestShellSort(buff);
-    TestBubbleSort(buff);
+    // TestBubbleSort(buff);
+    TestQuickSort(buff);
     return 0;
 }
