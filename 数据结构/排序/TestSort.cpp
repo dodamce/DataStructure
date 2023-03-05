@@ -3,6 +3,7 @@
 #include "./插入排序/ShellSort.h"
 #include "./交换排序/BubbleSort.h"
 #include "./交换排序/QuickSort.h"
+#include "./选择排序/SelectSort.h"
 #include "debug.h"
 
 #define SIZE 10
@@ -64,6 +65,8 @@ int main(int argc, char const *argv[])
     // TestHalfInsertSort(buff);
     // TestShellSort(buff);
     // TestBubbleSort(buff);
-    TestQuickSort(buff);
+    // TestQuickSort(buff);
+    SelectSort(buff);
+    DisPlay(buff);
     return 0;
 }
