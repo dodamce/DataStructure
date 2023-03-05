@@ -23,12 +23,19 @@ using namespace std;
 template <class ValueType>
 void BubbleSort(vector<ValueType> &vet)
 {
+    bool end = false;
     for (size_t i = 0; i < vet.size(); i++)
     {
+        if (end == true)
+        {
+            break;
+        }
+        end = true;
         for (size_t j = 0; j < vet.size() - i - 1; j++)
         {
             if (vet[j] > vet[j + 1])
             {
+                end = false;
                 swap(vet[j], vet[j + 1]);
             }
         }
