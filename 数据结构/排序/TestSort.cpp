@@ -5,6 +5,7 @@
 #include "./交换排序/QuickSort.h"
 #include "./选择排序/SelectSort.h"
 #include "./选择排序/HeapSort.h"
+#include "./归并排序与基数排序/MergeSort.h"
 #include "debug.h"
 
 #define SIZE 10
@@ -68,7 +69,8 @@ int main(int argc, char const *argv[])
     // TestBubbleSort(buff);
     // TestQuickSort(buff);
     // SelectSort(buff);
-    HeapSort(buff);
+    // HeapSort(buff);
+    MergeSort(buff);
     DisPlay(buff);
     return 0;
 }
