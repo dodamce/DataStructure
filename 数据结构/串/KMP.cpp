@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//使用KMP算法返回src第一个匹配dst的位置,下标从0开始,从src的pos位置开始匹配
+// 使用KMP算法返回src第一个匹配dst的位置,下标从0开始,从src的pos位置开始匹配
 
 void InitNext(const string &dst, vector<int> &next)
 {
@@ -14,6 +14,7 @@ void InitNext(const string &dst, vector<int> &next)
     int k = 0;
     for (int i = 2; i < dst.size(); i++)
     {
+        k = next[i - 1];
         while (k != -1 && dst[i - 1] != dst[k])
         {
             k = next[k];
@@ -57,7 +58,7 @@ int main()
 {
     // cout << KMP("abcabcabcdabcde", "abcd", 0) << endl;
     // cout << KMP("abcdabcabcdabcde", "abcd", 0) << endl;
-    cout << KMP("abcdabcabcdabcde", "abcd", 1) << endl;
+    cout << KMP("abcdabcabcdabcde", "ababaaababaa", 0) << endl;
 
     return 0;
 }

@@ -6,6 +6,7 @@ public class KMP {
         int k = 0;
         for (int i = 2; i < dst.length(); i++) {
             // 找str[i-1]==str[k]位置
+            k = next[i - 1];
             while (k != -1 && dst.charAt(i - 1) != dst.charAt(k)) {
                 k = next[k];
             }
@@ -30,7 +31,7 @@ public class KMP {
 
         while (i < lenSrc && j < lenDst) {
             if (j == -1 || src.charAt(i) == dst.charAt(j)) {
-                //j==-1代表第一个字符就匹配失败，i从第二个字符开始匹配，j从0开始
+                // j==-1代表第一个字符就匹配失败，i从第二个字符开始匹配，j从0开始
                 i++;
                 j++;
             } else {
