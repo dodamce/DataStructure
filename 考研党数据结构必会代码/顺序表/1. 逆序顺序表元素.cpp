@@ -1,5 +1,5 @@
 #include <vector>
-#include "../debug.h"
+#include "../debug.hpp"
 using namespace std;
 /**
 using c++11
